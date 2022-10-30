@@ -339,9 +339,11 @@ Let's download the images and videos that we will carry inference upon.
 """
 
 # Inference on images.
-IMAGE_INFER_DIR = inference(RES_DIR, '/content/sample_data/O_5328_jpg.rf.5d6fb1689656f65a1d2b111f1227a6ca.jpg')
+IMAGE_INFER_DIR = inference(RES_DIR, '/content/O_7428_jpg.rf.8fb359c1cf0703ee583b165432a01ab6.jpg')
 
 visualize(IMAGE_INFER_DIR)
+
+!zip -r /content/yolov5/utils.zip /content/yolov5/utils
 
 """### Inference on Videos"""
 
@@ -357,12 +359,5 @@ if TRAIN:
     --img 640 --epochs {EPOCHS} --batch-size 16 --name {RES_DIR}
 
 # Inference on images.
-IMAGE_INFER_DIR = inference(RES_DIR, '/content/sample_data/O_10072_jpg.rf.c16fceb38faa8f03f349556b98b39c71.jpg')
+IMAGE_INFER_DIR = inference(RES_DIR, '/content/O_10072_jpg.rf.c16fceb38faa8f03f349556b98b39c71.jpg')
 visualize(IMAGE_INFER_DIR)
-
-!zip -r /content/yolov5.zip /content/yolov5
-
-"""## Freezing Layers and Training the Medium Model
-
-The Medium model (yolov5m) contains 25 blocks layers in total more than 20 million parameters. We need not train all the layers. Let's freeze a few layers and train again. This will result in faster iteration per epoch. Here, we freeze the first 15 blocks.
-"""
